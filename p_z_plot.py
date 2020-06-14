@@ -1,3 +1,10 @@
+'''
+Given transfer function this plots S plan in 3-D explaining how Laplace transform is extention of fourier spectrum
+
+This can be used to show that the transfer functions says at which rate (S value - poles) if the output chages there would be
+high magnitude resultant output or at which rate (s- value zeros) if out changes there will be not any influence of input.
+'''
+
 import matplotlib.pyplot as plt
 import numpy as np
 from mpl_toolkits import mplot3d
@@ -35,7 +42,7 @@ else:
     g_max = 2*roots.min()
     print(2)
 
-grid_resolution = 30  # 30x30x30 grid 
+grid_size = 30  # 30x30x30 grid 
 x1=np.linspace(g_min,g_max,grid_size) # real axis with 30 points
 y1=np.linspace(g_min,g_max,grid_size) # imaginary axis with 30 points
 g=np.meshgrid(x1,y1)  # generating mesh for x and y 
