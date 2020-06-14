@@ -20,10 +20,12 @@ den = np.poly1d(d)
 zeros = num.roots
 poles = den.roots
 
+# collect all zeros and poles
 roots = np.append(zeros.real,poles.real)
 roots = np.append(roots,poles.imag)
 roots = np.append(roots,zeros.imag)
 
+# Fix grid size to fit all roots 
 if(roots.max()):
     g_min = -2*roots.max()
     g_max = 2*roots.max()
@@ -33,9 +35,9 @@ else:
     g_max = 2*roots.min()
     print(2)
 
-grid_size = 30
-x1=np.linspace(g_min,g_max,grid_size) # real axis
-y1=np.linspace(g_min,g_max,grid_size) # real axis                  # imaginary axis
+grid_resolution = 30  # 30x30x30 grid 
+x1=np.linspace(g_min,g_max,grid_size) # real axis with 30 points
+y1=np.linspace(g_min,g_max,grid_size) # imaginary axis with 30 points
 g=np.meshgrid(x1,y1)  # generating mesh for x and y 
 grid = np.append(g[0].reshape(-1,1),g[1].reshape(-1,1),axis=1)
 ss=[complex(point[0],point[1]) for point in grid] # generate complex plane (s-plane)
@@ -45,8 +47,9 @@ dd= [np.polyval(den,number) for number in ss]          # substitute the denomina
 
 f=[abs(nn[i]/dd[i]) for i in range(len(dd))]          # transfer function
 f = np.array(f)
-f1 = f.reshape(grid_size,grid_size)
+f1 = f.reshape(grid_size,grid_size)  # magnitudes fo all 30x30 points
 
+# Plot S plane with magnitude
 fig = plt.figure()
 ax = plt.axes(projection='3d')
 #ax.autoscale(enable=True, axis='both', tight=None)
