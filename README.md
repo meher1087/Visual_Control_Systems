@@ -7,26 +7,28 @@ CURRENT PROGRESS:
 - Python files added to plot gradient of a function
 - Python module developed to use blender for working with vectror agebra. Following methods are available in it
 
-create_collection('states')
-create_material(Blue,(r,g,b,I))
-arrow_between(x1, y1, z1, x2, y2, z2,color) 
+
+
+*create_collection('states')
+* create_material(Blue,(r,g,b,I))
+* arrow_between(x1, y1, z1, x2, y2, z2,color) 
     - arrow size depends on distance between points
     - color will be name of color defined using create_material
-add_axis(origin, point on axis, radius of cylinder,length of axis,color)
+* add_axis(origin, point on axis, radius of cylinder,length of axis,color)
 
-add_color(ob,color) - apply defined color to object
+* add_color(ob,color) - apply defined color to object
                     - ob = bpy.context.object
-add_shapes(name, verts, faces, edges=None, col_name)
+* add_shapes(name, verts, faces, edges=None, col_name)
                     - name 'some_shape'
                     - verts [(0,0,0),(1,1,1),(2,2,2)] - coords
                     - edges [(0,1),(1,2),(2,0)] - pairs of points
                     - faces [have to figure out]    
-transform(A,collection=None,obj=None,simulate = False)
-simulate(frame_number,A,collection='states')
+* transform(A,collection=None,obj=None,simulate = False)
+* simulate(frame_number,A,collection='states')
 
-def add_points(color,scale=1,locations=None,collection=None,Random=False,number=None):
+* add_points(color,scale=1,locations=None,collection=None,Random=False,number=None):
 
-def name_object(Name,object=None,collection=None):
+* name_object(Name,object=None,collection=None):
 
 To use it place the module in blender/version/modules/ and then import it in blender as
 from control_blend import *
